@@ -1,4 +1,4 @@
-# TareaIntegradoraESTRUC
+# Integradora - ESTRUCTURAS DISCRETAS
 
 Sergio Fernando Florez A00396046 <br>
 Nayeli Suarez A00382425 <br>
