@@ -5,24 +5,20 @@ public class Passenger {
     String name;
     int id;
     int age;
-    String row;
-    int numChair;
+    int row;
+    String column;
     Boolean firstClass;
-    Boolean priority;
-
-    int milles;
-
-    Boolean comeFirst;
-    public Passenger(String name, int id, int age, String row, int numChair, Boolean firstClass, Boolean priority, Boolean comeFirst, int mi) {
+    int miles;
+    int comeFirst;
+    public Passenger(String name, int id, int age, int miles,int row, String column,Boolean firstClass,  int comeFirst) {
         this.name = name;
         this.id = id;
         this.age = age;
         this.row = row;
-        this.numChair = numChair;
+        this.column = column;
         this.firstClass = firstClass;
-        this.priority = priority;
         this.comeFirst = comeFirst;
-        this.milles = milles;
+        this.miles = miles;
     }
     public String getName() {
         return name;
@@ -36,12 +32,12 @@ public class Passenger {
         return age;
     }
 
-    public String getRow() {
+    public int getRow() {
         return row;
     }
 
-    public int getNumChair() {
-        return numChair;
+    public String getColumn() {
+        return column;
     }
 
     public Boolean getFirstClass() {
@@ -52,11 +48,4 @@ public class Passenger {
         this.firstClass = firstClass;
     }
 
-    public Boolean getPriority() {
-        return priority;
-    }
-
-    public void setPriority(Boolean priority) {
-        this.priority = priority;
-    }
 }
