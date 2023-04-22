@@ -50,10 +50,10 @@ public class Main {
 
     public int getOptionShowMenu(){
         int option = 0;
-        System.out.println("<<<<< Sistema de entrada y salida. Aerolinea FlyFast >>>>>");
+        System.out.println("<<<<< Sistema de entrada y salida ^==^ Aerolinea FlyFast >>>>>");
         System.out.println(
-                "1. Orden correcto de entrada de los pasajeros." +
-                "2. Orden correcto de salida de los pasajeros." +
+                "1. Orden correcto de entrada de los pasajeros.\n" +
+                "2. Orden correcto de salida de los pasajeros.\n" +
                 "0.  Exit.");
 
         option =  validateIntegerInput();
