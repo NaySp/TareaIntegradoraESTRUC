@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalTime;
 
 public class Passenger implements Comparable<Passenger> {
 
@@ -9,6 +10,7 @@ public class Passenger implements Comparable<Passenger> {
     String column;
     Boolean firstClass;
     int miles;
+    private LocalTime time;
     
     public Passenger(String name, int id, int age, int miles,int row, String column,Boolean firstClass) {
         this.name = name;
@@ -51,6 +53,12 @@ public class Passenger implements Comparable<Passenger> {
     }
     public void setMiles(int miles) {
         this.miles = miles;
+    }
+    public LocalTime getTime() {
+        return time;
+    }
+    public void setTime(LocalTime time) {
+        this.time = time;
     }
     
     @Override

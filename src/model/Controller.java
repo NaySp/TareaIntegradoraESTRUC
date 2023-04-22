@@ -62,8 +62,8 @@ public class Controller {
                     passenger.setTime(LocalTime.now());
                     if(passenger.getTime().isBefore(getTimePlane())){
                         //se premia puntualidad. xddd
-                        
-                        passenger.setMiles(passenger.getMiles()+ 100);
+                        // una idea. 
+                        // passenger.setMiles(passenger.getMiles()+ 100);
                     }
 
                     if (passenger.getFirstClass() == true) {
@@ -86,6 +86,11 @@ public class Controller {
         }
         
 
+    }
+
+    public void showOrder(){
+        firstClass.print();
+        turistClass.print();
     }
 
 
