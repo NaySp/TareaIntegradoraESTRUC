@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.Collections;
 
 public class Queue<T> {
     private ArrayList<T> queue;
@@ -33,9 +34,10 @@ public class Queue<T> {
     }
 
     public void print() {
-        System.out.print("Orden de llegada es");
+
+        System.out.print("Clase Turista\n");
         for (T data : queue) {
-            System.out.print(data + " 2");
+            System.out.print(data + " ");
         }
         System.out.println();
     }
