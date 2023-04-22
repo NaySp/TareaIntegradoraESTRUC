@@ -4,16 +4,27 @@ package model;
 import java.util.ArrayList;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalTime;
 
 public class Controller {
     
     private HashTable<String, Passenger> hashTable;
     private PriorityQueue<Passenger> firstClass;
     private Queue<Passenger> turistClass;
+    private LocalTime  timePlane; 
 
     public Controller(){
         firstClass = new PriorityQueue<>();
         turistClass = new Queue<>(); 
+        timePlane = LocalTime.now();
+    }
+
+    public LocalTime getTimePlane() {
+        return timePlane;
+    }
+
+    public void setTimePlane(LocalTime timePlane) {
+        this.timePlane = timePlane;
     }
 
     public void uploadPassengers(String archivo, int num) {
@@ -48,7 +59,13 @@ public class Controller {
                 Passenger passenger = hashTable.get(atribut[0]);
                 if (passenger != null) {
                     passenger.toString();
-                    
+                    passenger.setTime(LocalTime.now());
+                    if(passenger.getTime().isBefore(getTimePlane())){
+                        //se premia puntualidad. xddd
+                        
+                        passenger.setMiles(passenger.getMiles()+ 100);
+                    }
+
                     if (passenger.getFirstClass() == true) {
                         firstClass.insert(passenger);
         
