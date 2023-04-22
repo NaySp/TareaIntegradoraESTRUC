@@ -69,6 +69,7 @@ public class PriorityQueue<T extends Comparable<T>> {
     }
 
     public void print() {
+        System.out.println("Primera Clase\n");
         for (T item : heap) {
             System.out.print(item + " ");
         }
