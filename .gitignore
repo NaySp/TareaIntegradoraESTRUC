@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/intellij,visualstudiocode,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=intellij,visualstudiocode,windows
+# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,intellij,windows
 
 ### Intellij ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -159,4 +159,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij,visualstudiocode,windows
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,intellij,windows

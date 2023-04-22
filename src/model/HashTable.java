@@ -47,6 +47,18 @@ public class HashTable<K, V> implements IHash<K, V> {
         return null;
     }
 
+    @Override
+    public void remove(K key) {
+        int index = hash(key);
+        ArrayList<Node<K, V>> nodes = table[index];
+        for (Node<K, V> node : nodes) {
+            if (node.key.equals(key)) {
+                nodes.remove(node);
+                size--;
+                return;
+            }
+        }
+    }
 
     @Override
     public boolean containsKey(K key) {
