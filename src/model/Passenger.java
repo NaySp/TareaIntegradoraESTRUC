@@ -63,7 +63,7 @@ public class Passenger implements Comparable<Passenger> {
     
     @Override
     public String toString() {
-        return "Passenger [the Passengers name  is : " + name + "]";
+        return "Passenger is :" + name + ".";
     }
   @Override
   public int compareTo(Passenger other){

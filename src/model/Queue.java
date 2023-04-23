@@ -35,7 +35,7 @@ public class Queue<T> {
 
     public void print() {
 
-        System.out.print("Clase Turista\n");
+        System.out.print("\nClase Turista\n");
         for (T data : queue) {
             System.out.print(data + " ");
         }
