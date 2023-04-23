@@ -34,6 +34,7 @@ public class Main {
 
         // creación del objeto.
         Main main = new Main();
+        main.lectorTxt(); 
         // llamdo a uno de los metodos de la clase.
         int option = 0;
 
@@ -50,10 +51,11 @@ public class Main {
 
     public int getOptionShowMenu(){
         int option = 0;
-        System.out.println("<<<<< Sistema de entrada y salida. Aerolinea FlyFast >>>>>");
+        System.out.println("<<<<< Sistema de entrada y salida ^==^ Aerolinea FlyFast >>>>>");
         System.out.println(
-                "1. Orden correcto de entrada de los pasajeros.\n" +
-                "2. Orden correcto de salida de los pasajeros.\n" +
+                "1. Orden de llegada de los pasajeros \n" +
+                "2. Orden correcto de entrada de los pasajeros.\n" +
+                "3. Orden correcto de salida de los pasajeros.\n" +
                 "0.  Exit.");
 
         option =  validateIntegerInput();
@@ -64,18 +66,24 @@ public class Main {
 
         switch(option){
             case 1:
-
-                //orden correcto de entrada de los pasajeros
+            System.out.println("orden de los pasajeros, ingrese la direccion del txt donde estan los pasajeros por orden de llegada.");
+            String archivo= reader.next();
+            controller.orderPassenger(archivo); 
+            
 
                 break;
 
             case 2:
+            controller.showOrder(); 
 
-                //orden correcto de salida de los pasajeros
-
+                
                 break;
+            case 3:
 
-
+                
+            
+                break;
+         
             case 0:
                 System.out.println("Exit program.");
                 break;
@@ -123,7 +131,14 @@ public class Main {
 
         return option;
     }
+    public void lectorTxt(){
+        System.out.println("ingrese la direccion del archivo txt donde carga la informacion de los pasajeros ");
+        String dir = reader.next();
+        System.out.println("ingrese la cantidad de pasajeros.");
+        int num = reader.nextInt();
+        controller.uploadPassengers(dir, num);
 
+    }
 
 
 }

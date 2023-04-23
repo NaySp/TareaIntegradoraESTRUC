@@ -1,103 +1,98 @@
 package model;
-import java.util.ArrayList;
 
-public class HashTable<K, V> implements IHash<K, V> {
+public class HashTable<K extends Comparable<K>, V> {
 
-    private final int CAPACITY = 80;
-    private final double LOAD_FACTOR = 0.75;
-    private int size;
+    private NodeHash<K, V>[] list;
 
-    private ArrayList<Node<K, V>>[] table;
+    private int length;
 
-    public HashTable() {
-        size = 0;
-        table = new ArrayList[CAPACITY];
-        for (int i = 0; i < CAPACITY; i++) {
-            table[i] = new ArrayList<>();
-        }
+    public HashTable(int length) {
+        list = new NodeHash[length];
+        this.length = length;
     }
 
-    @Override
-    public void put(K key, V value) {
+    public void insert(K key, V value) {
         int index = hash(key);
-        ArrayList<Node<K, V>> nodes = table[index];
-        for (Node<K, V> node : nodes) {
-            if (node.key.equals(key)) {
-                node.value = value;
-                return;
-            }
+        NodeHash<K, V> node = new NodeHash<K, V>(key, value);
+        if (list[index] != null) {
+            list[index].setPrev(node);
+            node.setNext(list[index]);
         }
-        Node<K, V> newNode = new Node<>(key, value);
-        nodes.add(newNode);
-        size++;
-        if (size > table.length * LOAD_FACTOR) {
-            resize();
-        }
+        list[index] = node;
     }
 
-    @Override
-    public V get(K key) {
-        int index = hash(key);
-        ArrayList<Node<K, V>> nodes = table[index];
-        for (Node<K, V> node : nodes) {
-            if (node.key.equals(key)) {
-                return node.value;
+    public V get(K key){
+        int index=hash(key);
+        NodeHash<K,V> node=list[index];
+        while(node!=null){
+            if(node.getKey().compareTo(key)==0){
+                return node.getValue();
             }
+            node=node.getNext();
         }
         return null;
-    }
+    }  
 
-    @Override
-    public void remove(K key) {
-        int index = hash(key);
-        ArrayList<Node<K, V>> nodes = table[index];
-        for (Node<K, V> node : nodes) {
-            if (node.key.equals(key)) {
-                nodes.remove(node);
-                size--;
-                return;
+public void remove(K key) {
+    int index = hash(key);
+    NodeHash<K, V> current = list[index];
+    while (current != null) {
+        if (current.getKey().equals(key)) {
+            if (current.getPrev() == null) {
+                list[index] = current.getNext();
+            } else {
+                current.getPrev().setNext(current.getNext());
             }
-        }
-    }
-
-    @Override
-    public boolean containsKey(K key) {
-        int index = hash(key);
-        ArrayList<Node<K, V>> nodes = table[index];
-        for (Node<K, V> node : nodes) {
-            if (node.key.equals(key)) {
-                return true;
+            if (current.getNext() != null) {
+                current.getNext().setPrev(current.getPrev());
             }
+            return;
         }
-        return false;
+        current = current.getNext();
     }
+}
 
-    @Override
-    public boolean isEmpty() {
-        return size == 0;
-    }
+    public String print() {
+        String msg = "";
+        for (int i = 0; i < length; i++) {
+            msg += "[ ";
+            if (list[i] != null) {
+                NodeHash<K, V> node = list[i];
+                while (node != null) {
+                    if (node.getNext() == null) {
+                        msg += node.getValue().toString() + ". ";
+                    } else {
+                        msg += node.getValue().toString() + ", ";
+                    }
+                    node = node.getNext();
+                }
 
-    @Override
-    public int getSize() {
-        return size;
+            }
+            msg += "]\n";
+
+        }
+        return msg;
     }
 
     public int hash(K key) {
-        return Math.abs(key.hashCode() % table.length);
+        int hash = key.hashCode();
+        hash = hash < 0 ? -hash : hash; // asegura que el hash sea positivo
+        return hash % length;
     }
 
-    public void resize() {
-        ArrayList<Node<K, V>>[] oldTable = table;
-        table = new ArrayList[oldTable.length * 2];
-        for (int i = 0; i < table.length; i++) {
-            table[i] = new ArrayList<>();
-        }
-        size = 0;
-        for (ArrayList<Node<K, V>> nodes : oldTable) {
-            for (Node<K, V> node : nodes) {
-                put(node.key, node.value);
-            }
-        }
+    public int getLength() {
+        return length;
     }
 
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public NodeHash<K, V>[] getList() {
+        return list;
+    }
+
+    public void setList(NodeHash<K, V>[] list) {
+        this.list = list;
+    }
 }
