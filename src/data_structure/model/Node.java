@@ -1,5 +1,4 @@
-package model;
-
+package data_structure.model;
 public class Node <K, V> {
 
     K key;

@@ -1,8 +1,8 @@
-package ui;
+package data_structure.ui;
 
 import java.util.Scanner;
 // importamos el controller
-import model.Controller;
+import data_structure.model.*;
 
 
 public class Main {
@@ -51,7 +51,7 @@ public class Main {
 
     public int getOptionShowMenu(){
         int option = 0;
-        System.out.println("<<<<< Sistema de entrada y salida ^==^ Aerolinea FlyFast >>>>>");
+        System.out.println("\n<<<<< Sistema de entrada y salida ^==^ Aerolinea FlyFast >>>>>");
         System.out.println(
                 "1. Orden de llegada de los pasajeros \n" +
                 "2. Orden correcto de entrada de los pasajeros.\n" +
@@ -66,6 +66,8 @@ public class Main {
 
         switch(option){
             case 1:
+            // C:\\Users\\sergi\\OneDrive\\Documentos\\TareaIntegradoraESTRUC\\data\\OrdenLlegada.csv por ejemplo asi xd 
+
             System.out.println("orden de los pasajeros, ingrese la direccion del txt donde estan los pasajeros por orden de llegada.");
             String archivo= reader.next();
             controller.orderPassenger(archivo); 
@@ -132,6 +134,8 @@ public class Main {
         return option;
     }
     public void lectorTxt(){
+
+        // C:\\Users\\sergi\\OneDrive\\Documentos\\TareaIntegradoraESTRUC\\data\\info.csv 
         System.out.println("ingrese la direccion del archivo txt donde carga la informacion de los pasajeros ");
         String dir = reader.next();
         System.out.println("ingrese la cantidad de pasajeros.");

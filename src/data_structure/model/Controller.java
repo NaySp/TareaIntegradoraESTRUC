@@ -1,5 +1,5 @@
 
-package model;
+package data_structure.model;
 
 import java.util.ArrayList;
 import java.io.*;

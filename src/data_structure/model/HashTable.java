@@ -1,4 +1,4 @@
-package model;
+package data_structure.model;
 
 public class HashTable<K extends Comparable<K>, V> {
 

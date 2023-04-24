@@ -1,5 +1,4 @@
-package model;
-
+package data_structure.model;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.Collections;
@@ -35,7 +34,7 @@ public class Queue<T> {
 
     public void print() {
 
-        System.out.print("Clase Turista\n");
+        System.out.print("\nClase Turista\n");
         for (T data : queue) {
             System.out.print(data + " ");
         }
