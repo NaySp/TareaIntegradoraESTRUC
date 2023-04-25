@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 public class Controller {
     
-    private HashTable<String, Passenger> hashTable;
+    private HashTable<Integer, Passenger> hashTable;
     private PriorityQueue<Passenger> firstClass;
     private Queue<Passenger> turistClass;
     private LocalTime  timePlane; 
@@ -37,7 +37,7 @@ public class Controller {
                 Passenger passenger = new Passenger(atributs[0], Integer.parseInt(atributs[1]), Integer.parseInt(atributs[2]),Integer.parseInt(atributs[3]),
                         Integer.parseInt(atributs[4]),atributs[5],Boolean.parseBoolean(atributs[6]));
 
-                hashTable.insert(atributs[0],passenger);
+                hashTable.insert(Integer.parseInt(atributs[1]),passenger);
             }
             fis.close();
         } catch (FileNotFoundException e) {
@@ -54,7 +54,7 @@ public class Controller {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] atribut = line.split(" ");
-                Passenger passenger = hashTable.get(atribut[0]);
+                Passenger passenger = hashTable.get(Integer.parseInt(atribut[0]));
                 if (passenger != null) {
                     passenger.toString();
                     passenger.setTime(LocalTime.now());
