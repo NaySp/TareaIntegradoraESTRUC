@@ -1,6 +1,4 @@
-
 package data_structure.model;
-
 import java.util.ArrayList;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
