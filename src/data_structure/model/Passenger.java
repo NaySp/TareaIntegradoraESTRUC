@@ -78,5 +78,32 @@ public class Passenger implements Comparable<Passenger> {
         }
 
   }  
+  public int compareTo1(Passenger other){
+    // Primero comparamos por fila
+    int comparationRow = Integer.compare(this.row, other.getRow());
+    if (comparationRow != 0) {
+        return comparationRow;
+    }
 
+    // Si las filas son iguales, comparamos por columna, con la peculiaridad dada
+    int column1 = getColumnValue(this.column);
+    int column2 = getColumnValue(other.getColumn());
+    int comparationColumn = Integer.compare(column1, column2);
+    if (comparationColumn != 0) {
+        return comparationColumn;
+    }
+
+    // Si las columnas son iguales, comparamos por time
+    return this.time.compareTo(other.getTime());
+  }
+  private int getColumnValue(String columna) {
+    switch (columna) {
+        case "C": case "D": return 1;
+        case "B": case "E": return 2;
+        case "A": case "F": return 3;
+        default: throw new IllegalArgumentException("Columna inválida: " + columna);
+    }
+}
+
+  
 }

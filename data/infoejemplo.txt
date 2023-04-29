@@ -1,0 +1,6 @@
+Mitchell;98124;23;341;4;B;false;
+Hunter;36798;37;567;2;E;true;
+Peterson;76312;52;120;6;F;true;
+Rodriguez;54068;19;897;7;C;false;
+Barnes;21854;41;430;1;D;true;
+Lee;49213;68;652;5;A;false;

@@ -8,12 +8,14 @@ public class Controller {
     
     private HashTable<Integer, Passenger> hashTable;
     private PriorityQueue<Passenger> firstClass;
+    private PriorityQueueOut<Passenger> out;
     private Queue<Passenger> turistClass;
     private LocalTime  timePlane; 
 
     public Controller(){
         firstClass = new PriorityQueue<>();
         turistClass = new Queue<>(); 
+        out = new PriorityQueueOut<>(); 
         timePlane = LocalTime.now();
     }
 
@@ -58,6 +60,7 @@ public class Controller {
                 if (passenger != null) {
                     passenger.toString();
                     passenger.setTime(LocalTime.now());
+                    out.insert(passenger);
                     if(passenger.getTime().isBefore(getTimePlane())){
                         //se premia puntualidad. xddd
                         // una idea. 
@@ -65,10 +68,11 @@ public class Controller {
                     }
 
                     if (passenger.getFirstClass() == true) {
-                        firstClass.insert(passenger);
+                        firstClass.insert(passenger);        
         
                     } else {
                         turistClass.enqueue(passenger);
+                       
                     }
                 }
                 else{
@@ -89,6 +93,9 @@ public class Controller {
     public void showOrder(){
         firstClass.print();
         turistClass.print();
+    }
+    public void showOut(){
+        out.print();
     }
 
 

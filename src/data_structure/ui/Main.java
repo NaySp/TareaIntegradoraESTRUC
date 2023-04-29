@@ -81,9 +81,8 @@ public class Main {
                 
                 break;
             case 3:
-
-                
-            
+            controller.showOut();
+        
                 break;
          
             case 0:
