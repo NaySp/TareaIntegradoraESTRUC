@@ -66,7 +66,7 @@ public class Main {
 
         switch(option){
             case 1:
-            // C:\\Users\\sergi\\OneDrive\\Documentos\\TareaIntegradoraESTRUC\\data\\OrdenLlegada.csv por ejemplo asi xd 
+            // C:\\Users\\sergi\\OneDrive\\Documentos\\TareaIntegradoraESTRUC\\data\\OrdenLlegada.csv por ejemplo asi xd
 
             System.out.println("orden de los pasajeros, ingrese la direccion del txt donde estan los pasajeros por orden de llegada.");
             String archivo= reader.next();
